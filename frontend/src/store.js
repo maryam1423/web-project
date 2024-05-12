@@ -7,11 +7,11 @@ import {
 } from "./reducers/productReducers";
 import { userSigninReducer, userRegisterReducer } from "./reducers/userReducer";
 import { cartReducer } from "./reducers/cartReducers";
-import {thunk} from 'redux-thunk';
-import Cookies from "js-cookie";
+import thunk from "redux-thunk";
+import * as Cookie from "js-cookie";
 
-const cartItems = Cookies.get("cartItems") ? JSON.parse(Cookies.get("cartItems")) : [];
-const userInfo = Cookies.get("userInfo") ? JSON.parse(Cookies.get("userInfo")) : null;
+const cartItems = Cookie.getJSON("cartItems") || [];
+const userInfo = Cookie.getJSON("userInfo") || null;
 
 const initialState = { cart: { cartItems, shipping:{}, payment:{} }, userSignin: { userInfo } };
 const reducer = combineReducers({

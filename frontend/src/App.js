@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom"; // Import Routes
+import { BrowserRouter, Route, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import HomeScreen from "./Screens/HomeScreen";
@@ -80,17 +80,18 @@ function App() {
                 </aside>
                 <main className="main">
                     <div className="content">
-                        <Routes>
-                            <Route path="/products" element={<ProductsScreen />} />
-                            <Route path="/shipping" element={<ShipppingScreen />} />
-                            <Route path="/payment" element={<PaymentScreen />} />
-                            <Route path="/placeorder" element={<PlaceOrderScreen />} />
-                            <Route path="/signin" element={<SigninScreen />} />
-                            <Route path="/register" element={<RegisterScreen />} />
-                            <Route path="/product/:id" element={<ProductScreen />} />
-                            <Route path="/" element={<HomeScreen />} />
-                            <Route path="/cart/:id?" element={<CartScreen />} />
-                        </Routes>
+                        <Route path="/products" component={ProductsScreen} />
+                        <Route path="/shipping" component={ShipppingScreen} />
+                        <Route path="/payment" component={PaymentScreen} />
+                        <Route
+                            path="/placeorder"
+                            component={PlaceOrderScreen}
+                        />
+                        <Route path="/signin" component={SigninScreen} />
+                        <Route path="/register" component={RegisterScreen} />
+                        <Route path="/product/:id" component={ProductScreen} />
+                        <Route path="/" exact={true} component={HomeScreen} />
+                        <Route path="/cart/:id?" component={CartScreen} />
                     </div>
                 </main>
                 <footer className="footer">All right reserved</footer>
